@@ -1,0 +1,17 @@
+@mixin respond-to($media){
+  @if $media == handheld {
+    @media only screen and (max-device-width: 460px), only screen and (min-device-width: 1024px) and (max-width: 460px) {@content;}
+  }
+  @else if $media == medium-window{
+    @media only screen and (min-device-width: 461px) and (max-device-width: 1024px), only screen and (min-device-width: 1024px) and (min-width: 461px) {@content;}
+  }
+  @else if $media == large-window{
+    @media only screen and (min-device-width: 1024px) and (min-width: 1024px) {@content;}
+  }
+  // @else if $media == handheld {
+  //   @media only screen and (max-device-width: 460px), only screen and (min-device-width: 1024px) and (max-width: 460px) {@content;}
+  // }
+  // @else if $media == handheld {
+  //   @media only screen and (max-device-width: 460px), only screen and (min-device-width: 1024px) and (max-width: 460px) {@content;}
+  // }
+}
