@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>MTG</title>
-</head>
-<body>
-
-<h3>If you can read this, I'm already dead</h3>
-  
-</body>
-</html>
+<div class = "mainGallery">
+{{#each images}}
+<img class = "imageBox" src="{{link}}" alt="">
+{{author}} <br>
+<a href="{{link}}"><h4 class = "link">{{link}}</h4></a>
+{{description}}  <br>
+{{/each}}
+</div>
