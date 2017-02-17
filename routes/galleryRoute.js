@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../models');
 
 
+
 let Photo = db.Photo;
 
 router.get('/new', (req,res) => {
@@ -75,5 +76,13 @@ router.get('/:id/edit', (req, res) => {
       res.render("../views/gallery/edit", {image: image});
     });
 });
+
+// router.route('/login',)
+//   .get((req,res)=>{
+//     res.render('../views/gallery/new');
+//   })
+//   .post((req,res)=>{
+
+//   });
 
 module.exports = router;

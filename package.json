@@ -2,7 +2,7 @@
   "name": "express-gallery",
   "version": "1.0.0",
   "description": "Express Gallery ===============",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
@@ -22,9 +22,12 @@
     "browser-sync": "^2.18.7",
     "express": "^4.14.1",
     "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.1",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-sass": "^3.1.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
     "pg": "^6.1.2",
     "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.2"
