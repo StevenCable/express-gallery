@@ -1,7 +1,13 @@
-<div class = "mainGallery">
+<div class = "photoContainer">
+  <a href="{{image.link}}"><img src="{{image.link}}" class="photo"></a>
+  <br>
+  <div class="authors-descriptions"></div>
+    {{image.description}} - {{image.author}}
+  <br>
+  id: {{image.id}}
+  <form action="../?_method=GET" method="POST">
+  <h3 id="goBackText">Like go back to main, ya?</h3>
+  <input type="submit" id="backBtn" value="back to main">
+  </form>
 
-<a href="{{image.link}}"><img class = "imageBox" src="{{image.link}}" alt=""></a>
-{{image.author}}
-<a href="{{image.link}}"><h4 class = "link">{{image.link}}</h4></a>
-{{image.description}}
 </div>

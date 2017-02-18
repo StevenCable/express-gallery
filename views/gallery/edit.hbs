@@ -1,9 +1,11 @@
-<form action="/gallery" method="POST">
+<form action="./?_method=PUT" method="POST">
   Author: <br>
-  <input type="text" placeholder=`${req.body}` name="author" /> <br>
+  <input type="text" value="{{image.author}}" name="author" /> <br>
   URL: <br>
-  <input type="text" placeholder="Link" name="link" /> <br>
+  <input type="text" value="{{image.link}}" name="link" /> <br>
   Description: <br>
-  <textarea name = "description" cols="40" rows="15"></textarea><br>
+  <input type="description" name="description" value="{{image.description}}" cols="40" rows="15"/><br>
   <input type="submit" value="Post Photo">
 </form>
+
+{{!-- ><textarea name = "description" </textarea> --}}

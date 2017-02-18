@@ -7,14 +7,14 @@ const db = require('../models');
 let Photo = db.Photo;
 
 router.get('/new', (req,res) => {
-  res.render('../views/gallery/new');
+  res.render('./gallery/new');
 });
 
 router.route('/')
   .get((req, res) => {
     Photo.findAll()
     .then((images) =>{
-      res.render('index', {images: images});
+      res.render('./gallery/list', {images: images});
     });      
   })
 
@@ -35,7 +35,7 @@ router.route('/:id')
   .get((req,res) => {
     Photo.findById(req.params.id)
     .then((image) =>{
-      res.render("../views/gallery/single", {image: image});
+      res.render("./gallery/single", {image: image});
     });
   })
 
@@ -51,7 +51,7 @@ router.route('/:id')
       }
     )
       .then(() =>{
-        res.redirect(303, `/gallery/${req.params.id}`);
+        res.redirect(303, `./`);
       })
       .catch(err =>{
         console.log('ya done fuck*d up A-A-Ron', err);
@@ -66,23 +66,16 @@ router.route('/:id')
       }
     })
     .then(()=>{
-      res.redirect(303, '/gallery');
+      res.redirect(303, '/');
     });
   });
 
 router.get('/:id/edit', (req, res) => {
   Photo.findById(req.params.id)
     .then((image) =>{
-      res.render("../views/gallery/edit", {image: image});
+      res.render("./gallery/edit", {image: image});
     });
 });
 
-// router.route('/login',)
-//   .get((req,res)=>{
-//     res.render('../views/gallery/new');
-//   })
-//   .post((req,res)=>{
-
-//   });
 
 module.exports = router;

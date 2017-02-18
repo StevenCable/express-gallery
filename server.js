@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const handlebars = require('express-handlebars');
 const bp = require('body-parser');
-const indexRoute = require('./routes/indexRoute');
+const methodOverride = require('method-override')
 const galleryRoute = require('./routes/galleryRoute');
 const db = require('./models');
 const Photo = db.Photo;
@@ -17,6 +17,7 @@ const app = express();
 
 app.use(express.static('public'));
 app.use(bp.urlencoded({extended: true}));
+app.use(methodOverride('_method'));
 app.use('/gallery', galleryRoute);
 app.use(session({
   secret: CONFIG.SESSION_SECRET
@@ -64,7 +65,7 @@ app.set('view engine', 'hbs');
 app.get('/',(req, res) => {
   Photo.findAll()
     .then((images) =>{
-      res.render('index', {images: images});
+      res.render('gallery/list', {images: images});
     });
 });
 
