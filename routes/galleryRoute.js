@@ -12,7 +12,7 @@ router.get('/new', (req,res) => {
 
 router.route('/')
   .get((req, res) => {
-    Photo.findAll()
+    Photo.findAll({order: "id"})
     .then((images) =>{
       res.render('./gallery/list', {images: images});
     });      

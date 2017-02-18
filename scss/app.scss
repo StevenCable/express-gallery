@@ -1,10 +1,11 @@
-@import "./partials/clearfix.scss";
+@import "./partials/reset.scss";
+// @import "./partials/clearfix.scss";
 @import "./partials/general_styles.scss";
 @import "./partials/media-query.scss";
-@import "./partials/reset.scss";
 
-body{
-  background-color: pink;
-}
+
+// body{
+//   background-color: pink;
+// }
 
 //all future css stuff, write it in here

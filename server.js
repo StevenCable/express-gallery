@@ -19,38 +19,32 @@ app.use(express.static('public'));
 app.use(bp.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use('/gallery', galleryRoute);
-app.use(session({
-  secret: CONFIG.SESSION_SECRET
-}));
+// app.use(session({
+//   secret: CONFIG.SESSION_SECRET
+// }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-const authenticate = (username, password) => {
-  // get user data from the DB
-  const { USERNAME } = CONFIG;
-  const { PASSWORD } = CONFIG;
+// const authenticate = (username, password) => {
+//   // get user data from the DB
+//   const { USERNAME } = CONFIG;
+//   const { PASSWORD } = CONFIG;
 
-  // check if the user is authenticated or not
-  return ( username === USERNAME && password === PASSWORD );
-};
+//   // check if the user is authenticated or not
+   return ( username === USERNAME && password === PASSWORD );
+// };
 
 passport.use(new LocalStrategy(
   function (username, password, done) {
+
     console.log('username, password: ', username, password);
-    // check if the user is authenticated or not
-    if( authenticate(username, password) ) {
 
-      // User data from the DB
-      const user = {
-        name: 'Steve',
-        role: 'admin',
-        favColor: 'blue',
-        isAdmin: true,
-      };
+    // // check if the user is authenticated or not
+    //sequelize query for findOne() to select a single user to match in table User
 
-      return done(null, user); // no error, and data = user
-    }
-    return done(null, false); // error and authenticted = false
+    //   return done(null, user); // no error, and data = user
+    // }
+    // return done(null, false); // error and authenticted = false
   }
 ));
 
@@ -63,7 +57,7 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
 app.get('/',(req, res) => {
-  Photo.findAll()
+  Photo.findAll({order:"id"})
     .then((images) =>{
       res.render('gallery/list', {images: images});
     });
