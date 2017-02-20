@@ -1,13 +1,20 @@
 <div class = "photoContainer">
-  <a href="{{image.link}}"><img src="{{image.link}}" class="photo"></a>
+  <a href="{{image.link}}">
+    <img src="{{image.link}}" class="photo">
+  </a>
   <br>
   <div class="authors-descriptions"></div>
     {{image.description}} - {{image.author}}
   <br>
   id: {{image.id}}
+  <form action="/gallery/{{image.id}}?_method=DELETE" method="POST" >
+    <button class="submit" id="delete" type="submit">Delete</button>
+  </form>
+  <form action="/gallery/{{image.id}}/edit?_method=GET" method="POST">
+    <button class="submit" id="edit" type="submit">Edit</button>
+  </form>
   <form action="../?_method=GET" method="POST">
-  <h3 id="goBackText">Like go back to main, ya?</h3>
-  <input type="submit" id="backBtn" value="back to main">
+  <button class="submit" id="backBtn" type="submit">Like go back to Gallery, ya?</button>
   </form>
 
 </div>

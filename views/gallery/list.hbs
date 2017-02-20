@@ -1,23 +1,25 @@
 <div class = "mainGallery">
-{{#each images}}
-<div class="photoContainer">
-  <a href="{{link}}">
-    <img src="{{link}}" class="photo">
+
+<div id="hero">
+  <a href="/gallery/{{id}}">
+    <img src="/assets/Captain_America.jpg" class="photo">
   </a>
-  <br>
-  <div class="authors-descriptions">
-    {{description}} - {{author}}
-  </div> 
-  <br>
 </div>
+<hr>
 
-<form method="POST" action="/{{id}}?_method=DELETE" >
-  <input type="submit" value="delete">
-</form>
-<form action="/gallery/{{id}}/edit?_method=GET" method="POST">
-  <input type="submit" value="edit">
-</form>
-<br>
+  {{#each images}}
+  
+    <div class="photoContainer">
+      <a href="/gallery/{{id}}" class="photoLink">
+        <img src="{{link}}" class="photo">
+      </a>
+      <br>
+      <div class="authors-descriptions">
+        {{description}} - {{author}}
+      </div> 
+      <br>
+    </div>
+    <br>
 
-{{/each}}
+  {{/each}}
 </div>

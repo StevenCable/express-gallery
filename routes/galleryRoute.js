@@ -26,7 +26,7 @@ router.route('/')
       description: req.body.description
     })
     .then(() => {
-      res.redirect(303, '/');
+      res.redirect(303, './');
     });
 
   });

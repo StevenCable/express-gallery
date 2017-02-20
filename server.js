@@ -25,14 +25,14 @@ app.use('/gallery', galleryRoute);
 app.use(passport.initialize());
 app.use(passport.session());
 
-// const authenticate = (username, password) => {
+const authenticate = (username, password) => {
 //   // get user data from the DB
 //   const { USERNAME } = CONFIG;
 //   const { PASSWORD } = CONFIG;
 
 //   // check if the user is authenticated or not
    return ( username === USERNAME && password === PASSWORD );
-// };
+};
 
 passport.use(new LocalStrategy(
   function (username, password, done) {

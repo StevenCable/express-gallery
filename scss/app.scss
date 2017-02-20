@@ -1,11 +1,74 @@
-@import "./partials/reset.scss";
+// @import "./partials/reset.scss";
 // @import "./partials/clearfix.scss";
 @import "./partials/general_styles.scss";
-@import "./partials/media-query.scss";
+@import "./partials/mediaCard.scss";
+// @import "./partials/media-query.scss";
 
 
-// body{
-//   background-color: pink;
-// }
+body{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #a4a4a5;
+  font-size: 0.8rem;
+  border: solid 3px red;
 
-//all future css stuff, write it in here
+}
+
+#header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #68636A;
+  border: solid 3px green;
+  &#right-header{
+    display:none;
+  }
+  // @include respond-to(large){
+  //   &#right-header{
+  //     display: flex;
+  //     font-size: 1rem;
+  //     flex: 1 1 100%;
+  //     border: solid 3px blue;
+  //   }
+  // }
+}
+
+hr{
+  border-bottom: solid 10px grey; 
+}
+
+.mainGallery {
+  width: 100%;
+  // margin: 2rem;
+  border: solid 3px purple;
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+
+
+//   @include respond-to(large){
+//     margin: 3rem;
+//     width: 30rem;
+//   }
+ }
+
+
+
