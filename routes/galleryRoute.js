@@ -35,7 +35,16 @@ router.route('/:id')
   .get((req,res) => {
     Photo.findById(req.params.id)
     .then((image) =>{
-      res.render("./gallery/single", {image: image});
+      Photo.findAll({order: "id"})
+      .then((images)=>{
+        images.splice(0,1);
+
+        res.render("./gallery/single", {
+          image: image,
+          images: images
+        });
+
+      });      
     });
   })
 

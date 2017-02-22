@@ -61,15 +61,77 @@
 }
 
 //FOR MOBILE DETAIL
+
+#all-photos-container{
+  @include respond-to(large){
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.photoContainer-single{
+  @include respond-to(large){
+    flex: 1 0 70%; 
+    width: 60%;   
+    // display: table-cell;
+  }
+}
+#selected-photo{
+  @include respond-to(large){
+    width: 60%;
+  }
+}
 .authors-descriptions-single{
-  font-size: 4vw;
+  font-size: 1.0rem;
   color: lightgrey;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
-  // padding-top: rem;
   padding-bottom: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 50%;
 
 }
+
+#desktop-detail{
+  display: none;
+
+  @include respond-to(large){
+    display: initial;
+    flex: 0 0 70%;
+    width: 30%;
+    height: 20rem;
+
+    // display: table-cell;
+  }
+}
+
+.photoLink-single{
+
+  @include respond-to(large){
+    width: 100%;
+  }
+}
+
+.photoContainer-images{
+  @include respond-to(large){
+    // flex: 0 0 30%;
+    width: 30%;
+    margin: 0rem;   
+    // display: table-cell;
+  }
+}
+
+
+.photo-single{
+  width: 60%;
+  @include respond-to(large){
+    
+  }
+}
+
+
 
 .description{
   font-size: 1rem;
