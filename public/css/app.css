@@ -67,6 +67,11 @@ table {
 body {
   padding: 1vw; }
 
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none; }
+
 #header {
   border: solid 3px gold;
   display: flex;
@@ -110,9 +115,11 @@ body {
 
 .authors-descriptions {
   font-size: 3vw;
+  color: #68636A;
+  font-family: 'Arial', sans-serif;
   overflow: hidden;
   white-space: nowrap;
-  text-overslow: ellipsis; }
+  text-overflow: ellipsis; }
 
 * {
   box-sizing: border-box; }

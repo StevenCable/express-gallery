@@ -23,6 +23,12 @@ body{
 
 }
 
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
 #header{
   border: solid 3px gold; 
   display: flex;

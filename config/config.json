@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "steven",
-    "password": null,
+    "password": "steven",
     "database": "gallery_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
