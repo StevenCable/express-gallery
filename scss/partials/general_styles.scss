@@ -1,6 +1,9 @@
 
 body{
   padding: 1vw;
+  @include respond-to(large){
+    padding: 4vw;
+  }
 
 }
 
@@ -20,6 +23,7 @@ a {
 
   @include respond-to(large){
     border-top: dotted 1px lightgrey;
+    align-items: center;
   }
 }
 
@@ -31,7 +35,7 @@ a {
     width: 30%;
     border-left: solid 1px #ccc;
     border-size: border-box;
-    padding-left: 0.75rem;
+    padding-left: 1rem;
     font-family: 'Arial', sans-serif;
     font-size: 1rem;
     color: #68636C;
@@ -50,8 +54,9 @@ a {
   color: #68636A;
 
   @include respond-to(large){
-    width: 70%;
+    width: calc(70% - 2rem);
     flex-grow: 1;
+    margin-right: 2rem;
   }
 
 }
@@ -63,12 +68,6 @@ hr{
   box-shadow: 1px 1px #ccc; 
   box-sizing: border-box;
 }
-
-
-//FOR MOBILE DETAIL
-
-
-//FOR DESKTOP DETAIL
 
 
 

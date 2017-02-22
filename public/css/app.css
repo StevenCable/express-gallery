@@ -66,6 +66,9 @@ table {
 /* close commented backslash hack */
 body {
   padding: 1vw; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    body {
+      padding: 4vw; } }
 
 a {
   color: inherit;
@@ -81,7 +84,8 @@ a {
   margin-bottom: 2rem; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #header {
-      border-top: dotted 1px lightgrey; } }
+      border-top: dotted 1px lightgrey;
+      align-items: center; } }
 
 #right-header {
   display: none; }
@@ -91,7 +95,7 @@ a {
       width: 30%;
       border-left: solid 1px #ccc;
       border-size: border-box;
-      padding-left: 0.75rem;
+      padding-left: 1rem;
       font-family: 'Arial', sans-serif;
       font-size: 1rem;
       color: #68636C; } }
@@ -107,8 +111,9 @@ a {
   color: #68636A; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #left-header {
-      width: 70%;
-      flex-grow: 1; } }
+      width: calc(70% - 2rem);
+      flex-grow: 1;
+      margin-right: 2rem; } }
 
 hr {
   display: block;
@@ -166,14 +171,20 @@ hr {
     display: flex;
     flex-flow: row wrap; } }
 
-@media only screen and (min-device-width: 1024px) and (min-width: 970px) {
-  .photoContainer-single {
-    flex: 1 0 70%;
-    width: 60%; } }
+.photoContainer-single {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .photoContainer-single {
+      flex: 0 0 70%;
+      width: 60%; } }
 
-@media only screen and (min-device-width: 1024px) and (min-width: 970px) {
-  #selected-photo {
-    width: 60%; } }
+#selected-photo {
+  width: 80%; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #selected-photo {
+      width: 100%; } }
 
 .authors-descriptions-single {
   font-size: 1.0rem;
@@ -184,14 +195,21 @@ hr {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 50%; }
+  width: 50%;
+  margin-left: 9vw; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .authors-descriptions-single {
+      margin-left: 0rem;
+      width: 60%; } }
 
 #desktop-detail {
   display: none; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #desktop-detail {
       display: initial;
-      flex: 0 0 70%;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-bottom: 1.5rem;
       width: 30%;
       height: 20rem; } }
 
@@ -201,18 +219,45 @@ hr {
 
 @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
   .photoContainer-images {
-    width: 30%;
-    margin: 0rem; } }
+    width: 100%;
+    margin-bottom: 0.75rem; } }
 
 .photo-single {
-  width: 60%; }
+  width: 100%; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .photo-single {
+      width: 100%; } }
+
+@media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+  .authors-descriptions-sidebar {
+    font-size: 1.0rem;
+    width: 100%;
+    color: lightgrey;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    padding-bottom: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; } }
+
+#forms {
+  display: flex;
+  justify-content: center; }
 
 .description {
-  font-size: 1rem;
+  font-size: 3vw;
   color: #68636A;
   font-family: 'Arial', sans-serif;
+  width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .description {
+      font-size: 1rem; } }
+
+button {
+  border: solid 1px black;
+  background-color: grey; }
 
 * {
   box-sizing: border-box; }

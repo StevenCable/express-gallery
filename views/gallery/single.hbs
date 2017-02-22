@@ -1,47 +1,46 @@
 <div id="all-photos-container">
+  <div class="authors-descriptions-single">
+    <p>{{image.author}} - </p>
+    <p>{{image.link}}</p>  
+  </div>
   <div class = "photoContainer-single">
-    <div id="selected-photo">
-      <div class="authors-descriptions-single">
-        <p>{{image.author}} - </p>
-        <p>{{image.link}}</p>  
-      </div>
+    <div id="selected-photo">      
       <a href="{{image.link}}">
         <img src="{{image.link}}" class="photo-single">
       </a>
-    </div>
-    <div class="description">
+      <div class="description">
       {{image.description}}
+      </div>
+    </div>   
+    <div id="forms">
+      <form action="/gallery/{{image.id}}?_method=DELETE" method="POST" id="delete">
+        <button class="submit" id="delete" type="submit">Delete
+        </button>
+      </form>
+
+      <form action="/gallery/{{image.id}}/edit?_method=GET" method="POST" id="submit">
+        <button class="submit" id="edit" type="submit">
+          Edit
+        </button>
+      </form>
+
+      <form action="../?_method=GET" method="POST" id="go-back">
+        <button class="submit" id="backBtn" type="submit">
+          Like go back to Gallery, ya?
+        </button>
+      </form>
     </div>
-    <form action="/gallery/{{image.id}}?_method=DELETE" method="POST" id="delete">
-
-      <button class="submit" id="delete" type="submit">Delete
-      </button>
-    </form>
-
-    <form action="/gallery/{{image.id}}/edit?_method=GET" method="POST" id="submit">
-
-      <button class="submit" id="edit" type="submit">
-        Edit
-      </button>
-    </form>
-
-    <form action="../?_method=GET" method="POST" id="go-back">
-
-      <button class="submit" id="backBtn" type="submit">
-        Like go back to Gallery, ya?
-      </button>
-    </form>
   </div>
     <div class="multiCardContainer" id="desktop-detail">
       {{#each images}}  
         <div class="photoContainer-images">
           <a href="/gallery/{{id}}" class="photoLink-single">
             <img src="{{link}}" class="photo">
-          <br>
-          <div class="authors-descriptions">
-            {{author}} -<br>{{link}} 
-          </div> 
           </a>
+          <div class="authors-descriptions-sidebar">
+            <p>{{author}}-</p>
+            <p>{{link}}</p> 
+          </div> 
         </div>
       {{/each}}  
     </div>

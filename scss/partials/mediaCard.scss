@@ -66,19 +66,24 @@
   @include respond-to(large){
     display: flex;
     flex-flow: row wrap;
+    // padding: 2rem;
   }
 }
 
 .photoContainer-single{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   @include respond-to(large){
-    flex: 1 0 70%; 
+    flex: 0 0 70%; 
     width: 60%;   
     // display: table-cell;
   }
 }
 #selected-photo{
+  width: 80%;
   @include respond-to(large){
-    width: 60%;
+    width: 100%;
   }
 }
 .authors-descriptions-single{
@@ -91,6 +96,11 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 50%;
+  margin-left: 9vw;
+  @include respond-to(large){
+    margin-left: 0rem;
+    width: 60%;
+  }
 
 }
 
@@ -99,11 +109,11 @@
 
   @include respond-to(large){
     display: initial;
-    flex: 0 0 70%;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+    padding-bottom:1.5rem;
     width: 30%;
     height: 20rem;
-
-    // display: table-cell;
   }
 }
 
@@ -117,31 +127,60 @@
 .photoContainer-images{
   @include respond-to(large){
     // flex: 0 0 30%;
-    width: 30%;
-    margin: 0rem;   
-    // display: table-cell;
+    width: 100%;
+    margin-bottom: 0.75rem;   
+
   }
 }
 
 
 .photo-single{
-  width: 60%;
+  width: 100%;
   @include respond-to(large){
-    
+    width: 100%;
   }
 }
 
+.authors-descriptions-sidebar{
+  // display: none;
 
+  @include respond-to(large){
+    // display: initial;
+    font-size: 1.0rem;
+    // margin-left: 0rem;
+    width: 100%;    
+    color: lightgrey;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    padding-bottom: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 
-.description{
-  font-size: 1rem;
-  color: #68636A;
-  // font-weight: bold;
-  font-family: 'Arial', sans-serif;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
 }
 
+#forms{
+  display:flex;
+  justify-content: center;
+}
+
+.description{
+  font-size: 3vw;
+  color: #68636A;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  @include respond-to(large){
+    font-size: 1rem;
+  }
+}
+
+button{
+  border: solid 1px black;
+  background-color: grey;
+}
 
 
 //FOR DESKTOP DETAIL
