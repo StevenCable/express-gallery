@@ -64,6 +64,9 @@ table {
   display: block; }
 
 /* close commented backslash hack */
+* {
+  border-size: border-box; }
+
 body {
   padding: 1vw; }
 
@@ -73,16 +76,28 @@ a {
   text-decoration: none; }
 
 #header {
-  border: solid 3px gold;
   display: flex;
   flex-flow: row wrap;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin-top: 2rem;
   margin-bottom: 2rem; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #header {
+      border-top: dotted 1px lightgrey; } }
 
 #right-header {
   display: none; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #right-header {
+      display: initial;
+      width: 30%;
+      border-left: solid 1px #ccc;
+      border-size: border-box;
+      padding-left: 0.75rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 1rem;
+      color: #68636C; } }
 
 #left-header {
   width: 100%;
@@ -93,25 +108,50 @@ a {
   font-size: 10vw;
   font-weight: bold;
   color: #68636A; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #left-header {
+      width: 70%;
+      flex-grow: 1; } }
+
+hr {
+  display: block;
+  width: 100%;
+  border-top: solid 1px #cccc;
+  box-shadow: 1px 1px #ccc;
+  box-sizing: border-box; }
 
 .mainGallery {
-  border: solid 3px green;
-  padding: 3rem; }
-
-#hero {
+  padding: 3rem;
   width: 100%; }
 
+#hero {
+  width: 100%;
+  padding-bottom: 0.25%; }
+
 .multiCardContainer {
-  padding: 2rem; }
+  padding: 2rem;
+  width: 100%; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .multiCardContainer {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      padding: 0rem; } }
 
 .photoContainer {
   width: 100%; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .photoContainer {
+      width: calc(33% - 1rem);
+      height: 20rem;
+      padding-top: 0.5rem; } }
 
 .photoLink {
   width: 100%; }
 
 .photo {
-  width: 100%; }
+  width: 100%;
+  height: 80%; }
 
 .authors-descriptions {
   font-size: 3vw;
@@ -120,6 +160,9 @@ a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    .authors-descriptions {
+      font-size: 1.5vw; } }
 
 * {
   box-sizing: border-box; }

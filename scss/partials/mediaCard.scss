@@ -1,52 +1,49 @@
-@import "./partials/media-query.scss";
+// @import "./partials/media-query.scss";
 
 .mainGallery{
-  border: solid 3px green;
   padding: 3rem;
-
+  width: 100%;
 
 }
 
 #hero{
   width: 100%;
+  padding-bottom: 0.25%;
 
 }
 
 .multiCardContainer{
   padding: 2rem;
-  
+  width: 100%;
+
+  @include respond-to(large){
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 0rem;
+  }
 }
 
 .photoContainer{
   width: 100%;
-  // height: 40rem;
-  // overflow: auto;
-  // position: relative;
-  // cursor: pointer;
-  // margin-bottom: 4rem;
+
+  @include respond-to(large){
+    width: calc(33% - 1rem);
+    height: 20rem;
+    padding-top: 0.5rem;
+
+  }
 
 }
 
-// .aspectRatio{
-//   margin-bottom: 60%;
-// }
-
 .photoLink{
   width: 100%;
-  
-  // top: 0px;
-  // position: absolute;
-  // cursor: pointer;
 
 }
 
 .photo{
   width: 100%;
-  // height: 75%;
-  // background-color: grey;
-  // background-size: cover;
-  // background-position: 0 0;
-
+  height: 80%;
 
 }
 
@@ -57,5 +54,8 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+    @include respond-to(large){
+      font-size: 1.5vw;
+    }
   
 }

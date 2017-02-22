@@ -1,23 +1,7 @@
-// $breakpoints: (
-//   'medium': 800px,
-//   'large': 1200px
-//   ) !default;
+*{
+  border-size: border-box;
+}
 
-// @mixin respond-to($breakpoint){
-//   @if map-has-key(@breakpoints, @breakpoint){
-//     @media screen and (min-width: map-get ($breakpoints, $breakpoint)){
-//       @content;
-//     }
-//   }
-
-//   @else{
-//     @warn "No value could be retrieved from `#{$breakpoint}`, most unfortunate. "
-//         + "Available breakpoints are: #{map-keys($breakpoints)}.";
-//   }
-// }
-
-// @import "./partials/media-query.scss";
-// @include respond-to(small){
 body{
   padding: 1vw;
 
@@ -29,8 +13,7 @@ a {
   text-decoration: none;
 }
 
-#header{
-  border: solid 3px gold; 
+#header{ 
   display: flex;
   flex-flow: row wrap; 
   padding-top: 1rem;
@@ -38,11 +21,25 @@ a {
   margin-top: 2rem;
   margin-bottom: 2rem;
 
-
+  @include respond-to(large){
+    border-top: dotted 1px lightgrey;
+  }
 }
 
 #right-header{
   display: none;
+
+  @include respond-to(large){
+    display: initial;
+    width: 30%;
+    border-left: solid 1px #ccc;
+    border-size: border-box;
+    padding-left: 0.75rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #68636C;
+    
+  }
 }
 
 #left-header{
@@ -55,24 +52,26 @@ a {
   font-weight: bold;
   color: #68636A;
 
+  @include respond-to(large){
+    width: 70%;
+    flex-grow: 1;
+  }
+
 }
-
-h1 {
-
-
-}
-
-
 
 hr{
-  // display: block;
-  // width: 100%;
-  // border-top: solid 1px #cccc;
-  // box-shadow: 1px 1px #ccc; 
-  // box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-top: solid 1px #cccc;
+  box-shadow: 1px 1px #ccc; 
+  box-sizing: border-box;
 }
 
-// }
+
+//FOR MOBILE DETAIL
+
+
+//FOR DESKTOP DETAIL
 
 
 
