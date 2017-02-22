@@ -15,8 +15,60 @@
 //         + "Available breakpoints are: #{map-keys($breakpoints)}.";
 //   }
 // }
+
+// @import "./partials/media-query.scss";
+// @include respond-to(small){
 body{
-  background-color: lavender;
+  padding: 1vw;
 
 }
+
+#header{
+  border: solid 3px gold; 
+  display: flex;
+  flex-flow: row wrap; 
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+
+}
+
+#right-header{
+  display: none;
+}
+
+#left-header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 10vw;
+  font-weight: bold;
+  color: #68636A;
+
+}
+
+h1 {
+
+
+}
+
+
+
+hr{
+  // display: block;
+  // width: 100%;
+  // border-top: solid 1px #cccc;
+  // box-shadow: 1px 1px #ccc; 
+  // box-sizing: border-box;
+}
+
+// }
+
+
+
+
 

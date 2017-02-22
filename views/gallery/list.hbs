@@ -6,20 +6,21 @@
   </a>
 </div>
 <hr>
-
-  {{#each images}}
-  
-    <div class="photoContainer">
-      <a href="/gallery/{{id}}" class="photoLink">
-        <img src="{{link}}" class="photo">
-      </a>
+  <div class="multiCardContainer">
+    {{#each images}}
+    
+      <div class="photoContainer">
+        <a href="/gallery/{{id}}" class="photoLink">
+          <img src="{{link}}" class="photo">
+        <br>
+        <div class="authors-descriptions">
+          {{author}} - {{link}} 
+        </div> 
+        </a>
+        <br>
+      </div>
       <br>
-      <div class="authors-descriptions">
-        {{description}} - {{author}}
-      </div> 
-      <br>
-    </div>
-    <br>
 
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
