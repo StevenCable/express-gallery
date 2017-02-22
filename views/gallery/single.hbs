@@ -1,12 +1,12 @@
 <div class = "photoContainer">
+  <div class="authors-descriptions-single">
+    <p>{{image.author}} - </p>
+    <p>{{image.link}}</p>  
+  </div>
   <a href="{{image.link}}">
     <img src="{{image.link}}" class="photo">
   </a>
-  <br>
-  <div class="authors-descriptions"></div>
-    {{image.description}} - {{image.author}}
-  <br>
-  id: {{image.id}}
+  <div class="description">{{image.description}}</div>
   <form action="/gallery/{{image.id}}?_method=DELETE" method="POST" >
     <button class="submit" id="delete" type="submit">Delete</button>
   </form>

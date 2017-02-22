@@ -164,5 +164,19 @@ hr {
     .authors-descriptions {
       font-size: 1.5vw; } }
 
+.authors-descriptions-single {
+  font-size: 4vw;
+  color: lightgrey;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  padding-bottom: 1rem; }
+
+.description {
+  font-size: 1rem;
+  color: #68636A;
+  font-family: 'Arial', sans-serif;
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
+
 * {
   box-sizing: border-box; }
