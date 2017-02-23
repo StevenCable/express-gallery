@@ -128,11 +128,14 @@
   @include respond-to(large){
     // flex: 0 0 30%;
     width: 100%;
-    margin-bottom: 0.75rem;   
+    margin-bottom: 0.75rem;
+    height: 20rem;   
 
   }
 }
-
+.photoContainer-images:nth-child(n + 4){
+  display: none;
+}
 
 .photo-single{
   width: 100%;
@@ -142,12 +145,9 @@
 }
 
 .authors-descriptions-sidebar{
-  // display: none;
 
   @include respond-to(large){
-    // display: initial;
     font-size: 1.0rem;
-    // margin-left: 0rem;
     width: 100%;    
     color: lightgrey;
     font-weight: bold;
@@ -180,6 +180,7 @@
 button{
   border: solid 1px black;
   background-color: grey;
+  cursor: pointer;
 }
 
 

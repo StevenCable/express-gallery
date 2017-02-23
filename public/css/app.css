@@ -220,7 +220,11 @@ hr {
 @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
   .photoContainer-images {
     width: 100%;
-    margin-bottom: 0.75rem; } }
+    margin-bottom: 0.75rem;
+    height: 20rem; } }
+
+.photoContainer-images:nth-child(n + 4) {
+  display: none; }
 
 .photo-single {
   width: 100%; }
@@ -257,7 +261,8 @@ hr {
 
 button {
   border: solid 1px black;
-  background-color: grey; }
+  background-color: grey;
+  cursor: pointer; }
 
 * {
   box-sizing: border-box; }
