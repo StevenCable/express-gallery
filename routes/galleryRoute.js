@@ -20,24 +20,8 @@ router.route('/')
         as: 'user'
       }
   })
-    .then((images) =>{
-
-      res.render('./gallery/list', {images: images});
-      // User.findOne({
-    //   where: {
-    //     req.user.username
-    //   }
-    // })
-      // console.log('username: ', userIdToMatch);
-      // console.log('current userId: ', req.user.id)
-      // let userIdToMatch = {userId: images[0].user.id};
-
-      // if(userIdToMatch.userId === req.user.id){
-      //   res.render('./gallery/list', {images: images});
-      // }
-      
-      
-      
+    .then((images) =>{ 
+      res.render('./gallery/list', {images: images});      
     });      
   })
 
@@ -58,15 +42,20 @@ router.route('/:id')
   .get((req,res) => {
     Photo.findById(req.params.id)
     .then((image) =>{
-      Photo.findAll({order: "id"})
-      .then((images)=>{
-        images.splice(0,1);
+      User.findById(image.posted_by)
+        .then((user)=>{
+          console.log('image is: ', user);      
+            Photo.findAll({order: "id"})
+            .then((images)=>{
+              User.findById(images.posted_by);
+              images.splice(0,1);
 
-        res.render("./gallery/single", {
-          image: image,
-          images: images
+          res.render("./gallery/single", {
+            image: image,
+            images: images,
+            user: user
+          });
         });
-
       });      
     });
   })
@@ -106,7 +95,14 @@ router.route('/:id/edit')
   .get(isAuth,(req, res) => {
     Photo.findById(req.params.id)
     .then((image) =>{
-      res.render("./gallery/edit", {image: image});
+
+      if(image.posted_by === req.user.id){
+
+        res.render("./gallery/edit", {image: image});
+      }else{
+        console.log('You can\'t fuck with other people\'s shit');
+        res.redirect(303, `/gallery/${req.params.id}`);
+      }
     });
   });
 

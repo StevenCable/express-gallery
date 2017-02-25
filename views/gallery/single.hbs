@@ -21,6 +21,10 @@
       <div class="description">
       {{image.description}}
       </div>
+      <div id="postedBy">
+      From: {{user.username}} <br>
+      @ {{image.createdAt}}
+      </div>
     </div>   
     <div id="forms">
       <form action="/gallery/{{image.id}}?_method=DELETE" method="POST" id="delete">
@@ -49,7 +53,8 @@
           </a>
           <div class="authors-descriptions-sidebar">
             <p>{{author}}-</p>
-            <p>{{link}}</p> 
+            <p>{{link}}</p>
+            <p>by: {{user.username}}</p>
           </div> 
         </div>
       {{/each}}  

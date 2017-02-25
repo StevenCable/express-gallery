@@ -140,7 +140,7 @@ span {
   font-style: italic;
   text-decoration: underline; }
 
-button, .input-btn, #authenticate-btn {
+button, .input-btn {
   border: solid 1px black;
   background-color: grey;
   cursor: pointer;
@@ -154,7 +154,7 @@ button, .input-btn, #authenticate-btn {
   display: inline-block;
   border-radius: 5px;
   font-size: 1.5vw; }
-  button.input-btn, .input-btn.input-btn, #authenticate-btn.input-btn {
+  button.input-btn, .input-btn.input-btn {
     margin-top: 1rem;
     font-size: 1.5rem;
     padding: 0.5rem;

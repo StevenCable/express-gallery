@@ -1,4 +1,5 @@
 {{#if username}}
+<div id="top-menu">
   <div class="welcome">
     Welcome {{username}}
   </div>
@@ -7,6 +8,7 @@
       Log Out
     </button>
   </form>
+</div>
 {{/if}}
 <form action="./?_method=PUT" method="POST">
   <a href="./" class="photoLink">
@@ -24,7 +26,7 @@
     Description:
   </div>
   <input type="description" name="description" value="{{image.description}}" cols="40" rows="15"/><br>
-  <input type="submit" value="Post Photo">
+  <input type="submit" value="Post Update" class ="input-btn">
 </form>
 
 {{!-- ><textarea name = "description" </textarea> --}}
