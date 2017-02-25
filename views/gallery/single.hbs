@@ -1,4 +1,14 @@
 <div id="all-photos-container">
+{{#if username}}
+  <div class="welcome">
+    Welcome  <span>{{username}}</span>
+  </div>
+  <form action="/logout" method="POST">
+    <button id="log-out">
+      Log Out
+    </button>
+  </form>
+{{/if}}
   <div class="authors-descriptions-single">
     <p>{{image.author}} - </p>
     <p>{{image.link}}</p>  

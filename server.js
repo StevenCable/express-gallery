@@ -5,6 +5,8 @@ const bp = require('body-parser');
 const methodOverride = require('method-override');
 const galleryRoute = require('./routes/galleryRoute');
 const createUser = require('./routes/userRoute.js');
+const isAuth = require('./public/js/isAuth');
+const setUser = require('./public/js/setUser');
 const db = require('./models');
 const Photo = db.Photo;
 const User = db.User;
@@ -14,7 +16,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
-// const path = require('path');
 const app = express();
 
 
@@ -23,20 +24,11 @@ app.use(bp.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(session({
   store: new RedisStore(),
-  secret: 'keyboard cat'
+  secret: 'keyboard cat',
+  resave: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-// const authenticate = (username, password) => {
-
-
-
-// //   // check if the user is authenticated or not
-//    return ( username === USERNAME && password === PASSWORD );
-// };
 
 passport.use(new LocalStrategy(
   function (username, password, done) {
@@ -64,7 +56,6 @@ const hbs = handlebars.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
-
 passport.serializeUser(function(user, done) {
   return done(null, user);
 });
@@ -81,10 +72,10 @@ function isAuthenticated(req, res, next){
     res.redirect(303, '/login');
   }
 }
-app.use('/gallery', galleryRoute);
+app.use('/gallery', setUser, galleryRoute);
 app.use('/create', createUser);
 
-app.get('/',(req, res) => {
+app.get('/', setUser,(req, res) => {
   Photo.findAll({order:"id"})
     .then((images) =>{
       res.render('gallery/list', {images: images});
@@ -102,6 +93,11 @@ app.route('/login')
 
 app.get('/secret', isAuthenticated, (req, res) => {
   res.render('./gallery/secret');
+});
+
+app.post('/logout', (req, res) => {
+  req.logout();
+  res.redirect(303, '/login');
 });
 
 app.listen(PORT, ()=>{

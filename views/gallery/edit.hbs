@@ -1,12 +1,28 @@
+{{#if username}}
+  <div class="welcome">
+    Welcome {{username}}
+  </div>
+  <form action="/logout" method="POST">
+    <button id="log-out">
+      Log Out
+    </button>
+  </form>
+{{/if}}
 <form action="./?_method=PUT" method="POST">
   <a href="./" class="photoLink">
     <img src="{{image.link}}" class="photo">
   </a> <br>
-  Author: <br>
+  <div id="author">
+    Author:
+  </div>
   <input type="text" value="{{image.author}}" name="author" /> <br>
-  URL: <br>
+  <div id="url">
+    URL:
+  </div>
   <input type="text" value="{{image.link}}" name="link" /> <br>
-  Description: <br>
+  <div id="description">
+    Description:
+  </div>
   <input type="description" name="description" value="{{image.description}}" cols="40" rows="15"/><br>
   <input type="submit" value="Post Photo">
 </form>

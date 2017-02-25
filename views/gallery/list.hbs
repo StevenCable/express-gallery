@@ -1,5 +1,37 @@
 <div class = "mainGallery">
-
+{{#if username}}
+<div id="top-menu">
+  <div class="welcome">
+    Welcome <span>{{username}}</span>
+  </div>
+  <div id="list-action-buttons">
+    <form action="/gallery/new" method="GET">
+      <button id="new-post">
+        New Post
+      </button>
+    </form>
+    <form action="/logout" method="POST">
+      <button id="log-out">
+        Log Out
+      </button>
+    </form>
+  </div>
+</div>
+{{else}}
+<div id="guest">
+  Welcome Unknown Creeper!
+</div>
+<form action="/login" method="GET">
+  <button id="login">
+    Login
+  </button>
+</form>
+<form action="/create">
+  <button class="create-account">
+    Create Account
+  </button>
+</form>
+{{/if}}
 <div id="hero">
   <a href="/gallery/{{id}}">
     <img src="/assets/Captain_America.jpg" class="photo">

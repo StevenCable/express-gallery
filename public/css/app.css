@@ -115,6 +115,46 @@ a {
       flex-grow: 1;
       margin-right: 2rem; } }
 
+#username, #password, #author, #url, #description {
+  font-family: 'Arial', sans-serif;
+  font-size: 3vw;
+  font-weight: bold;
+  color: #68636A; }
+
+.welcome {
+  font-family: 'Arial', sans-serif;
+  font-size: 3vw;
+  font-weight: bold;
+  color: #68636A;
+  flex: 1 0 50%; }
+
+span {
+  color: #68636A;
+  text-shadow: 1px 0 black;
+  font-style: italic;
+  text-decoration: underline; }
+
+button {
+  border: solid 1px black;
+  background-color: grey;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin: 0.5vw;
+  padding: 1.5vw;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 1.5vw; }
+
+button:hover {
+  background-color: lightgrey;
+  color: grey;
+  border: solid 0.5px darkgrey;
+  box-shadow: 0 6px 12px 6px #7D7F7E; }
+
 hr {
   display: block;
   width: 100%;
@@ -169,7 +209,8 @@ hr {
 @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
   #all-photos-container {
     display: flex;
-    flex-flow: row wrap; } }
+    flex-flow: row wrap;
+    justify-content: space-between; } }
 
 .photoContainer-single {
   display: flex;
@@ -191,6 +232,7 @@ hr {
   color: lightgrey;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
+  padding-top: 1rem;
   padding-bottom: 1rem;
   overflow: hidden;
   white-space: nowrap;
@@ -200,7 +242,7 @@ hr {
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .authors-descriptions-single {
       margin-left: 0rem;
-      width: 60%; } }
+      width: 100%; } }
 
 #desktop-detail {
   display: none; }
@@ -246,7 +288,8 @@ hr {
 
 #forms {
   display: flex;
-  justify-content: center; }
+  justify-content: space-around;
+  font-weight: bold; }
 
 .description {
   font-size: 3vw;
@@ -259,10 +302,14 @@ hr {
     .description {
       font-size: 1rem; } }
 
-button {
-  border: solid 1px black;
-  background-color: grey;
-  cursor: pointer; }
+#top-menu {
+  display: flex;
+  flex-flow: row wrap; }
+
+#list-action-buttons {
+  display: flex;
+  flex-flow: row wrap;
+  float: right; }
 
 * {
   box-sizing: border-box; }

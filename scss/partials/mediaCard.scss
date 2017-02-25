@@ -66,7 +66,7 @@
   @include respond-to(large){
     display: flex;
     flex-flow: row wrap;
-    // padding: 2rem;
+    justify-content: space-between;
   }
 }
 
@@ -91,6 +91,7 @@
   color: lightgrey;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
+  padding-top: 1rem;
   padding-bottom: 1rem;
   overflow: hidden;
   white-space: nowrap;
@@ -99,7 +100,7 @@
   margin-left: 9vw;
   @include respond-to(large){
     margin-left: 0rem;
-    width: 60%;
+    width: 100%;
   }
 
 }
@@ -160,10 +161,13 @@
 
 }
 
+
 #forms{
   display:flex;
-  justify-content: center;
+  justify-content: space-around;
+  font-weight: bold;
 }
+
 
 .description{
   font-size: 3vw;
@@ -177,10 +181,15 @@
   }
 }
 
-button{
-  border: solid 1px black;
-  background-color: grey;
-  cursor: pointer;
+#top-menu{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#list-action-buttons{
+  display: flex;
+  flex-flow: row wrap;
+  float: right;
 }
 
 

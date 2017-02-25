@@ -1,33 +1,50 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-
-
+const isAuth = require('../public/js/isAuth');
 
 let Photo = db.Photo;
+let User = db.User;
 
-router.get('/new', (req,res) => {
-  res.render('./gallery/new');
+router.route('/new')
+  .get(isAuth, (req,res) => {
+    res.render('./gallery/new');
 });
 
 router.route('/')
   .get((req, res) => {
-    Photo.findAll({order: "id"})
+    Photo.findAll({
+      order: "id",
+      include: {
+        model: User,
+        as: 'user'
+      }
+  })
     .then((images) =>{
+      console.log("imagesBra", images[0]);
       res.render('./gallery/list', {images: images});
     });      
   })
 
-  .post((req, res) => {
+  .post(isAuth, (req, res) => {
+    // User.findOne({
+    //   where: {
+    //     req.user.username
+    //   }
+    // })
     Photo.create(
     {
       author: req.body.author,
       link: req.body.link,
-      description: req.body.description
+      description: req.body.description,
+      posted_by: req.user.id
     })
     .then(() => {
       res.redirect(303, './');
     });
+
+    // console.log('req.user: ', req.user);
+    // console.log('req.body.author ', req.body.author)
 
   });
 
@@ -48,7 +65,7 @@ router.route('/:id')
     });
   })
 
-  .put((req, res) => {
+  .put(isAuth,(req, res) => {
     Photo.update({
       author: req.body.author,
       link: req.body.link,
@@ -68,7 +85,7 @@ router.route('/:id')
       });
   })
 
-  .delete((req, res) => {
+  .delete(isAuth,(req, res) => {
     Photo.destroy({
       where: {
         id: `${req.params.id}`
@@ -79,12 +96,13 @@ router.route('/:id')
     });
   });
 
-router.get('/:id/edit', (req, res) => {
-  Photo.findById(req.params.id)
+router.route('/:id/edit') 
+  .get(isAuth,(req, res) => {
+    Photo.findById(req.params.id)
     .then((image) =>{
       res.render("./gallery/edit", {image: image});
     });
-});
+  });
 
 
 module.exports = router;

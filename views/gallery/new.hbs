@@ -1,9 +1,28 @@
+{{#if username}}
+<div id="top-menu">
+  <div class="welcome">
+    Welcome {{username}}
+  </div>
+  <form action="/logout" method="POST">
+    <button id="log-out">
+      Log Out
+    </button>
+  </form>
+</div>
+{{/if}}
+
 <form action="/gallery" method="POST">
-  Author: <br>
+  <div id="author">
+    Author:
+  </div>
   <input type="text" placeholder="Author(s) Name" name="author" /> <br>
-  URL: <br>
+  <div id="url">
+    URL:
+  </div>
   <input type="text" placeholder="Link" name="link" /> <br>
-  Description: <br>
+  <div id="description">
+    Description:
+  </div>
   <textarea name = "description" cols="40" rows="15" placeholder="type yo shit, bruh"></textarea><br>
   <button class="submit" type="submit">Post</button>
 </form>
