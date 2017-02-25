@@ -33,7 +33,6 @@
     padding-top: 0.5rem;
 
   }
-
 }
 
 .photoLink{
@@ -49,6 +48,7 @@
 
 }
 
+
 .authors-descriptions{
   font-size: 3vw;
   color: #68636A;
@@ -57,12 +57,12 @@
   white-space: nowrap;
   text-overflow: ellipsis;
     @include respond-to(large){
-      font-size: 1.5vw;
+      font-size: 1rem;
     }
   
 }
 
-//FOR MOBILE DETAIL
+//FOR PARTIALS DETAILS
 
 #all-photos-container{
   @include respond-to(large){
@@ -89,8 +89,8 @@
   }
 }
 .authors-descriptions-single{
-  font-size: 1.0rem;
-  color: lightgrey;
+  font-size: 1.3rem;
+  color: #68636A;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
   padding-top: 1rem;
@@ -136,16 +136,10 @@
 
   }
 }
-// .photoContainer-images:nth-child(n){
-//   display: none;
-// }
 
 .photoContainer-images:nth-child(n + 4){
   display: none;
 }
-// .photoContainer-images:nth-child(n + 7){
-//   display: none;
-// }
 
 .photo-single{
   width: 100%;
@@ -159,7 +153,7 @@
   @include respond-to(large){
     font-size: 1.0rem;
     width: 100%;    
-    color: lightgrey;
+    color: #68636A;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
     padding-bottom: 1rem;
@@ -178,17 +172,22 @@
 }
 
 
-.description{
+.description, #postedBy{
   font-size: 3vw;
   color: #68636A;
   font-family: 'Arial', sans-serif;
   width: 100%;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  &#postedBy{
+    padding-top: 1rem;
+  }
+
   @include respond-to(large){
-    font-size: 1rem;
+    font-size: 1.5vw;
   }
 }
+
 
 #top-menu{
   display: flex;

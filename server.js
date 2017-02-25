@@ -76,8 +76,15 @@ app.use('/gallery', setUser, galleryRoute);
 app.use('/create', userRoute);
 
 app.get('/', setUser,(req, res) => {
-  Photo.findAll({order:"id"})
+   Photo.findAll({
+      order: "id",
+      include: {
+        model: User,
+        as: 'user'
+      }
+  })
     .then((images) =>{
+      console.log('images: ', images);
       res.render('gallery/list', {images: images});
     });
 });

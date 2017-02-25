@@ -22,8 +22,8 @@
       {{image.description}}
       </div>
       <div id="postedBy">
-      From: {{user.username}} <br>
-      @ {{image.createdAt}}
+      Posted By: <span>{{user.username}}</span> <br>
+      on {{image.createdAt}}
       </div>
     </div>   
     <div id="forms">
@@ -54,7 +54,7 @@
           <div class="authors-descriptions-sidebar">
             <p>{{author}}-</p>
             <p>{{link}}</p>
-            <p>by: {{user.username}}</p>
+            <p>Posted by: {{user.username}} on {{user.createdAt}}</p>
           </div> 
         </div>
       {{/each}}  

@@ -21,6 +21,7 @@ router.route('/')
       }
   })
     .then((images) =>{ 
+      console.log('images GalleryRoute: ', images);
       res.render('./gallery/list', {images: images});      
     });      
   })
@@ -43,11 +44,16 @@ router.route('/:id')
     Photo.findById(req.params.id)
     .then((image) =>{
       User.findById(image.posted_by)
-        .then((user)=>{
-          console.log('image is: ', user);      
-            Photo.findAll({order: "id"})
+        .then((user)=>{      
+            // Photo.findAll({order: "id"})
+            Photo.findAll({
+              order: "id",
+              include: {
+              model: User,
+              as: 'user'
+              }
+            })
             .then((images)=>{
-              User.findById(images.posted_by);
               images.splice(0,1);
 
           res.render("./gallery/single", {

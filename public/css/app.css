@@ -215,7 +215,7 @@ hr {
   text-overflow: ellipsis; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .authors-descriptions {
-      font-size: 1.5vw; } }
+      font-size: 1rem; } }
 
 @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
   #all-photos-container {
@@ -239,8 +239,8 @@ hr {
       width: 100%; } }
 
 .authors-descriptions-single {
-  font-size: 1.0rem;
-  color: lightgrey;
+  font-size: 1.3rem;
+  color: #68636A;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
   padding-top: 1rem;
@@ -289,7 +289,7 @@ hr {
   .authors-descriptions-sidebar {
     font-size: 1.0rem;
     width: 100%;
-    color: lightgrey;
+    color: #68636A;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
     padding-bottom: 1rem;
@@ -302,16 +302,18 @@ hr {
   justify-content: space-around;
   font-weight: bold; }
 
-.description {
+.description, #postedBy {
   font-size: 3vw;
   color: #68636A;
   font-family: 'Arial', sans-serif;
   width: 100%;
   padding-top: 2rem;
-  padding-bottom: 2rem; }
+  padding-bottom: 1rem; }
+  .description#postedBy, #postedBy#postedBy {
+    padding-top: 1rem; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
-    .description {
-      font-size: 1rem; } }
+    .description, #postedBy {
+      font-size: 1.5vw; } }
 
 #top-menu {
   display: flex;
