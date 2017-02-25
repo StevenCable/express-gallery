@@ -21,31 +21,37 @@ router.route('/')
       }
   })
     .then((images) =>{
-      console.log("imagesBra", images[0]);
-      res.render('./gallery/list', {images: images});
-    });      
-  })
 
-  .post(isAuth, (req, res) => {
-    // User.findOne({
+      res.render('./gallery/list', {images: images});
+      // User.findOne({
     //   where: {
     //     req.user.username
     //   }
     // })
+      // console.log('username: ', userIdToMatch);
+      // console.log('current userId: ', req.user.id)
+      // let userIdToMatch = {userId: images[0].user.id};
+
+      // if(userIdToMatch.userId === req.user.id){
+      //   res.render('./gallery/list', {images: images});
+      // }
+      
+      
+      
+    });      
+  })
+
+  .post(isAuth, (req, res) => {
     Photo.create(
-    {
-      author: req.body.author,
-      link: req.body.link,
-      description: req.body.description,
-      posted_by: req.user.id
-    })
+      {
+        author: req.body.author,
+        link: req.body.link,
+        description: req.body.description,
+        posted_by: req.user.id
+      })
     .then(() => {
       res.redirect(303, './');
     });
-
-    // console.log('req.user: ', req.user);
-    // console.log('req.body.author ', req.body.author)
-
   });
 
 router.route('/:id')

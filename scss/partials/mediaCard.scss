@@ -134,9 +134,16 @@
 
   }
 }
+// .photoContainer-images:nth-child(n){
+//   display: none;
+// }
+
 .photoContainer-images:nth-child(n + 4){
   display: none;
 }
+// .photoContainer-images:nth-child(n + 7){
+//   display: none;
+// }
 
 .photo-single{
   width: 100%;

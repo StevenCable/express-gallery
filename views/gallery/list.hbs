@@ -18,19 +18,21 @@
   </div>
 </div>
 {{else}}
-<div id="guest">
-  Welcome Unknown Creeper!
+<div id="top-menu">
+  <div class="welcome">
+    Welcome <span>Unknown Creeper!</span>
+  </div>
+  <form action="/login" method="GET">
+    <button id="login">
+      Login
+    </button>
+  </form>
+  <form action="/create">
+    <button class="create-account">
+      Create Account
+    </button>
+  </form>
 </div>
-<form action="/login" method="GET">
-  <button id="login">
-    Login
-  </button>
-</form>
-<form action="/create">
-  <button class="create-account">
-    Create Account
-  </button>
-</form>
 {{/if}}
 <div id="hero">
   <a href="/gallery/{{id}}">

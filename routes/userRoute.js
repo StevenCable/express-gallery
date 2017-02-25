@@ -5,7 +5,7 @@ const db = require('../models');
 let User = db.User;
 
 router.get('/', (req,res) => {
-  res.render('./createUser');
+  res.render('./partials/createUser');
 });
 
 router.post('/', (req,res) => {

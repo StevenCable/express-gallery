@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars');
 const bp = require('body-parser');
 const methodOverride = require('method-override');
 const galleryRoute = require('./routes/galleryRoute');
-const createUser = require('./routes/userRoute.js');
+const userRoute = require('./routes/userRoute.js');
 const isAuth = require('./public/js/isAuth');
 const setUser = require('./public/js/setUser');
 const db = require('./models');
@@ -73,7 +73,7 @@ function isAuthenticated(req, res, next){
   }
 }
 app.use('/gallery', setUser, galleryRoute);
-app.use('/create', createUser);
+app.use('/create', userRoute);
 
 app.get('/', setUser,(req, res) => {
   Photo.findAll({order:"id"})
