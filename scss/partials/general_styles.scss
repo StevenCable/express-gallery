@@ -115,11 +115,13 @@ input[type=text], [type=password]{
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  &#edit-description{
+    line-height: 30px;
+  }
+
 }
 
-// input[type=submit]{
 
-// }
 
 button, .input-btn{
   border: solid 1px black;
@@ -134,7 +136,7 @@ button, .input-btn{
   font-weight: bold;
   display: inline-block;
   border-radius: 5px;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
 
   &.input-btn{
     margin-top: 1rem;
