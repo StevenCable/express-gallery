@@ -40,7 +40,6 @@ passport.use(new LocalStrategy(
         }
       }).then( user =>{
         if(user === null){
-          console.log('user ain\'t showin');
           return done(null, false);
         }else{
           bcrypt.compare(password,user.password).then((res)=>{
@@ -72,7 +71,6 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('user is: ', user);
   return done(null, user);
 });
 
@@ -87,11 +85,6 @@ function isAuthenticated(req, res, next){
 app.use('/gallery', setUser, galleryRoute);
 app.use('/create', userRoute);
 
-
-// app.get('/', setUser,(req, res) => {
-//   res.render('/gallery',);
-// });
-
 app.route('/:user/gallery')
   .get((req, res)=>{
     Photo.findAll({
@@ -105,7 +98,6 @@ app.route('/:user/gallery')
       }
     })
       .then((images) =>{
-        console.log('special user: ', images);
         res.render('./gallery/list', {
           images:images,
           user: req.user.username

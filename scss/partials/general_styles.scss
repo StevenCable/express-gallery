@@ -42,6 +42,7 @@ a {
     
   }
 }
+
 #home{
   width: 100%;
   display: flex;
@@ -84,7 +85,6 @@ a {
   }
 }
 
-
 .welcome{
   font-family: 'Arial', sans-serif;
   font-size: 3vw;
@@ -93,12 +93,6 @@ a {
   flex: 1 0 50%;
 
 }
-
-// .form-body{
-//   display: flex;
-//   flex-flow: nowrap;
-//   justify-content: center;
-// }
 
 span{
   color:#68636A;
@@ -120,8 +114,6 @@ input[type=text], [type=password]{
   }
 
 }
-
-
 
 button, .input-btn{
   border: solid 1px black;

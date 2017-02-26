@@ -29,7 +29,6 @@ router.route('/')
           user: req.user.username
         });
       }else{
-        console.log('no user mayne');
         res.render('./gallery/list', {images:images});
       }
             
@@ -120,7 +119,6 @@ router.route('/:id/edit')
     .then((image) =>{
 
       if(image.posted_by === req.user.id){
-
         res.render("./gallery/edit", {image: image});
       }else{
         console.log('You can\'t fuck with other people\'s shit');

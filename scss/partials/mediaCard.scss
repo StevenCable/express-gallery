@@ -1,15 +1,11 @@
-// @import "./partials/media-query.scss";
-
 .mainGallery{
   padding: 3rem;
   width: 100%;
-
 }
 
 #hero{
   width: 100%;
   padding-bottom: 0.25%;
-
 }
 
 .multiCardContainer{
@@ -31,29 +27,23 @@
     width: calc(33% - 1rem);
     height: 20rem;
     padding-top: 0.5rem;
-
   }
 }
 
 .photoLink{
   width: 100%;
-
 }
 
 .photo{
   width: 100%;
   height: 80%;
-  // border: solid 3px #7D7F7E;
-  // box-shadow: 0 6px 12px 6px #7D7F7E;
-
 }
 
-  .photo:hover{
-    width: 102%;
-    height: 82%;
-    box-shadow: 0 0 8px 6px #7D7F7E;
-  }
-
+.photo:hover{
+  width: 102%;
+  height: 82%;
+  box-shadow: 0 0 8px 6px #7D7F7E;
+}
 
 .authors-descriptions{
   font-size: 3vw;
@@ -64,8 +54,7 @@
   text-overflow: ellipsis;
     @include respond-to(large){
       font-size: 1rem;
-    }
-  
+    }  
 }
 
 //FOR PARTIALS DETAILS
@@ -85,15 +74,16 @@
   @include respond-to(large){
     flex: 0 0 70%; 
     width: 60%;   
-    // display: table-cell;
   }
 }
+
 #selected-photo{
   width: 80%;
   @include respond-to(large){
     width: 100%;
   }
 }
+
 .authors-descriptions-single{
   font-size: 1.3rem;
   color: #68636A;
@@ -110,7 +100,6 @@
     margin-left: 0rem;
     width: 50%;
   }
-
 }
 
 #desktop-detail{
@@ -135,7 +124,6 @@
 
 .photoContainer-images{
   @include respond-to(large){
-    // flex: 0 0 30%;
     width: 100%;
     margin-bottom: 0.75rem;
     height: 20rem;   
@@ -177,7 +165,6 @@
   font-weight: bold;
 }
 
-
 .description, #postedBy{
   font-size: 3vw;
   color: #68636A;
@@ -194,7 +181,6 @@
   }
 }
 
-
 #top-menu{
   display: flex;
   flex-flow: row wrap;
@@ -203,9 +189,5 @@
 #list-action-buttons{
   display: flex;
   flex-flow: row wrap;
-  // width: 50%;
   float: right;
 }
-
-
-//FOR DESKTOP DETAIL
