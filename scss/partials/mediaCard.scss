@@ -48,6 +48,12 @@
 
 }
 
+  .photo:hover{
+    width: 102%;
+    height: 82%;
+    box-shadow: 0 0 8px 6px #7D7F7E;
+  }
+
 
 .authors-descriptions{
   font-size: 3vw;
@@ -102,7 +108,7 @@
   margin-left: 9vw;
   @include respond-to(large){
     margin-left: 0rem;
-    width: 100%;
+    width: 50%;
   }
 
 }

@@ -1,8 +1,9 @@
 <div class = "mainGallery">
-{{#if username}}
+{{#if user}}
 <div id="top-menu">
   <div class="welcome">
-    Welcome <span>{{username}}</span>
+    {{!-- Welcome <span>{{username}}</span> --}}
+    Welcome <span>{{user}}</span>
   </div>
   <div id="list-action-buttons">
     <form action="/gallery/new" method="GET">
@@ -15,12 +16,17 @@
         Log Out
       </button>
     </form>
+    <form action="/{{username}}/gallery" method="GET">
+      <button id="my-gallery">
+        My Gallery
+      </button>
+    </form>
   </div>
 </div>
 {{else}}
 <div id="top-menu">
   <div class="welcome">
-    Welcome <span>Unknown Creeper!</span>
+    Welcome <span>Creeper!</span>
   </div>
   <form action="/login" method="GET">
     <button id="login">

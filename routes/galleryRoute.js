@@ -21,8 +21,10 @@ router.route('/')
       }
   })
     .then((images) =>{ 
-      console.log('images GalleryRoute: ', images);
-      res.render('./gallery/list', {images: images});      
+      res.render('./gallery/list', {
+          images:images,
+          user: req.user.username
+        });      
     });      
   })
 
@@ -45,7 +47,6 @@ router.route('/:id')
     .then((image) =>{
       User.findById(image.posted_by)
         .then((user)=>{      
-            // Photo.findAll({order: "id"})
             Photo.findAll({
               order: "id",
               include: {
@@ -86,19 +87,24 @@ router.route('/:id')
       });
   })
 
-  .delete(isAuth,(req, res) => {
-    Photo.destroy({
-      where: {
-        id: `${req.params.id}`
-      }
-    })
-    .then(()=>{
-      res.redirect(303, '/');
-    });
+  .delete(isAuth, (req, res) => {
+    if(image.posted_by === req.user.id){
+        Photo.destroy({
+          where: {
+            id: `${req.params.id}`
+          }
+        })
+          .then(()=>{
+            res.redirect(303, '/');
+          });        
+    }else{
+        console.log('You can\'t fuck with other people\'s shit');
+        res.redirect(303, `/gallery/${req.params.id}`);
+    }    
   });
 
 router.route('/:id/edit') 
-  .get(isAuth,(req, res) => {
+  .get(isAuth, (req, res) => {
     Photo.findById(req.params.id)
     .then((image) =>{
 
@@ -111,6 +117,7 @@ router.route('/:id/edit')
       }
     });
   });
+
 
 
 module.exports = router;

@@ -100,6 +100,15 @@ a {
       font-size: 1rem;
       color: #68636C; } }
 
+#home {
+  width: 100%;
+  display: flex; }
+  @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
+    #home {
+      width: calc(70% - 2rem);
+      flex-grow: 1;
+      margin-right: 2rem; } }
+
 #left-header {
   width: 100%;
   display: flex;
@@ -111,9 +120,7 @@ a {
   color: #68636A; }
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     #left-header {
-      width: calc(70% - 2rem);
-      flex-grow: 1;
-      margin-right: 2rem; } }
+      width: 100%; } }
 
 #username, #password, #author, #url, #description, #createNewUser {
   font-family: 'Arial', sans-serif;
@@ -206,6 +213,11 @@ hr {
   width: 100%;
   height: 80%; }
 
+.photo:hover {
+  width: 102%;
+  height: 82%;
+  box-shadow: 0 0 8px 6px #7D7F7E; }
+
 .authors-descriptions {
   font-size: 3vw;
   color: #68636A;
@@ -253,7 +265,7 @@ hr {
   @media only screen and (min-device-width: 1024px) and (min-width: 970px) {
     .authors-descriptions-single {
       margin-left: 0rem;
-      width: 100%; } }
+      width: 50%; } }
 
 #desktop-detail {
   display: none; }

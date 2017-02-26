@@ -17,6 +17,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 const app = express();
+const bcrypt = require('bcrypt');
 
 
 app.use(express.static('public'));
@@ -30,22 +31,32 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 passport.use(new LocalStrategy(
   function (username, password, done) {
     User.findOne({
       where: {
         username: username,
-        password: password
-      }
-    })
-    .then((user) =>{
-      return done(null, user); //no error, and data = user
-    })
-    .catch((err)=>{
-      err = "nice fuckin' try...not!";
-      return done(null, err); // error and authenticted = false
-    });
-   }
+        }
+      }).then( user =>{
+        if(user === null){
+          console.log('user ain\'t showin');
+          return done(null, false);
+        }else{
+          bcrypt.compare(password,user.password).then((res)=>{
+            if(res){
+              return done(null, user);
+            }else{
+              return done(null, false);
+            }
+          });
+       
+        }
+      }).catch((err)=>{
+        console.log('error', err);
+      });
+    }
+    
 ));  
 
 const hbs = handlebars.create({
@@ -75,6 +86,7 @@ function isAuthenticated(req, res, next){
 app.use('/gallery', setUser, galleryRoute);
 app.use('/create', userRoute);
 
+
 app.get('/', setUser,(req, res) => {
    Photo.findAll({
       order: "id",
@@ -87,6 +99,27 @@ app.get('/', setUser,(req, res) => {
       console.log('images: ', images);
       res.render('gallery/list', {images: images});
     });
+});
+
+app.route('/:user/gallery')
+  .get((req, res)=>{
+    Photo.findAll({
+      order: "id",
+      include: {
+        model: User,
+        as: 'user'
+      },
+      where: {
+        posted_by: req.user.id,
+      }
+    })
+      .then((images) =>{
+        console.log('special user: ', images);
+        res.render('./gallery/list', {
+          images:images,
+          user: req.user.username
+        });
+  });
 });
 
 app.route('/login')

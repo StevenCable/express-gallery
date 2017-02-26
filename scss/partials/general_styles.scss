@@ -42,6 +42,16 @@ a {
     
   }
 }
+#home{
+  width: 100%;
+  display: flex;
+
+    @include respond-to(large){
+    width: calc(70% - 2rem);
+    flex-grow: 1;
+    margin-right: 2rem;
+  }
+}
 
 #left-header{
   width: 100%;
@@ -54,9 +64,7 @@ a {
   color: #68636A;
 
   @include respond-to(large){
-    width: calc(70% - 2rem);
-    flex-grow: 1;
-    margin-right: 2rem;
+    width: 100%;
   }
 
 }
@@ -91,7 +99,7 @@ span{
   text-shadow: 1px 0 black;
   font-style: italic;
   text-decoration: underline;
-  
+
 }
 
 button, .input-btn{
