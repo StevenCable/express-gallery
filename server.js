@@ -72,6 +72,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
+  console.log('user is: ', user);
   return done(null, user);
 });
 
@@ -87,19 +88,9 @@ app.use('/gallery', setUser, galleryRoute);
 app.use('/create', userRoute);
 
 
-app.get('/', setUser,(req, res) => {
-   Photo.findAll({
-      order: "id",
-      include: {
-        model: User,
-        as: 'user'
-      }
-  })
-    .then((images) =>{
-      console.log('images: ', images);
-      res.render('gallery/list', {images: images});
-    });
-});
+// app.get('/', setUser,(req, res) => {
+//   res.render('/gallery',);
+// });
 
 app.route('/:user/gallery')
   .get((req, res)=>{

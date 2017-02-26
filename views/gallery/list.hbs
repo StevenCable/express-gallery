@@ -2,7 +2,6 @@
 {{#if user}}
 <div id="top-menu">
   <div class="welcome">
-    {{!-- Welcome <span>{{username}}</span> --}}
     Welcome <span>{{user}}</span>
   </div>
   <div id="list-action-buttons">
@@ -11,14 +10,14 @@
         New Post
       </button>
     </form>
+    <form action="/{{user}}/gallery" method="GET">
+      <button id="my-gallery">
+        My Gallery
+      </button>
+    </form>
     <form action="/logout" method="POST">
       <button id="log-out">
         Log Out
-      </button>
-    </form>
-    <form action="/{{username}}/gallery" method="GET">
-      <button id="my-gallery">
-        My Gallery
       </button>
     </form>
   </div>
@@ -35,7 +34,7 @@
   </form>
   <form action="/create">
     <button class="create-account">
-      Create Account
+      Register
     </button>
   </form>
 </div>

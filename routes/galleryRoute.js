@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const isAuth = require('../public/js/isAuth');
+const setUser = require('../public/js/setUser');
 
 let Photo = db.Photo;
 let User = db.User;
@@ -20,11 +21,18 @@ router.route('/')
         as: 'user'
       }
   })
-    .then((images) =>{ 
-      res.render('./gallery/list', {
+    .then((images) =>{
+      if(req.user){
+        console.log('req.user', req.user);
+        res.render('./gallery/list', {
           images:images,
           user: req.user.username
-        });      
+        });
+      }else{
+        console.log('no user mayne');
+        res.render('./gallery/list', {images:images});
+      }
+            
     });      
   })
 
@@ -37,7 +45,7 @@ router.route('/')
         posted_by: req.user.id
       })
     .then(() => {
-      res.redirect(303, './');
+      res.redirect(303, '/gallery');
     });
   });
 
@@ -79,7 +87,7 @@ router.route('/:id')
       }
     )
       .then(() =>{
-        res.redirect(303, `./`);
+        res.redirect(303, `/gallery`);
       })
       .catch(err =>{
         console.log('ya done fuck*d up A-A-Ron', err);
@@ -88,19 +96,22 @@ router.route('/:id')
   })
 
   .delete(isAuth, (req, res) => {
-    if(image.posted_by === req.user.id){
-        Photo.destroy({
-          where: {
-            id: `${req.params.id}`
-          }
-        })
-          .then(()=>{
-            res.redirect(303, '/');
-          });        
-    }else{
-        console.log('You can\'t fuck with other people\'s shit');
-        res.redirect(303, `/gallery/${req.params.id}`);
-    }    
+    Photo.findById(req.params.id)
+      .then((image) =>{
+        if(image.posted_by === req.user.id){
+            Photo.destroy({
+              where: {
+                id: `${req.params.id}`
+              }
+            })
+              .then(()=>{
+                res.redirect(303, '/gallery');
+              });        
+        }else{
+            console.log('You can\'t fuck with other people\'s shit');
+            res.redirect(303, `/gallery/${req.params.id}`);
+        }
+      });    
   });
 
 router.route('/:id/edit') 
