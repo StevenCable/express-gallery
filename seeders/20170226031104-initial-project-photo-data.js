@@ -1,31 +1,28 @@
 'use strict';
 const bcrypt = require('bcrypt');
-let saltRounds = 10;
+const saltRounds = bcrypt.genSaltSync(10);
+const hash = bcrypt.hashSync('password', saltRounds);
+
+let adminUser = [{
+                    username: "admin",
+                    password: hash,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
+                  }];
 
 module.exports = {
 
   
 
   up: function (queryInterface, Sequelize) {
-  //   let createAdmin =
-  //   return  
-  //     (bcrypt.genSalt(saltRounds, function(err, salt) {
-  //       bcrypt.hash("admin", salt, function(err, hash) {
-  //         console.log("hash: ", hash)
-  //        queryInterface.bulkInsert('Users',[{
-  //                     username: "admin",
-  //                     password: hash,
-  //                     createdAt: new Date(),
-  //                     updatedAt: new Date()
-  //         }]);
-  //       });
-  //   }));
+
+    return queryInterface.bulkInsert('Users',adminUser);
+
   },
   
    down: function (queryInterface, Sequelize) {
     
-//       return queryInterface.bulkDelete('Person', null, {});
-
+      return queryInterface.bulkDelete('Users', adminUser);
   }
 };
 
