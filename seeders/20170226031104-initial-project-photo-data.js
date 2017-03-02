@@ -1,7 +1,8 @@
 'use strict';
+
 const bcrypt = require('bcrypt');
 const saltRounds = bcrypt.genSaltSync(10);
-const hash = bcrypt.hashSync('password', saltRounds);
+const hash = bcrypt.hashSync('admin', saltRounds);
 
 let adminUser = [{
                     username: "admin",

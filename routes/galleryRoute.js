@@ -117,10 +117,13 @@ router.route('/:id/edit')
   .get(isAuth, (req, res) => {
     Photo.findById(req.params.id)
     .then((image) =>{
-
-      if(image.posted_by === req.user.id){
+      if(req.user.username === "admin"){
         res.render("./gallery/edit", {image: image});
-      }else{
+      }
+      else if(image.posted_by === req.user.id){
+        res.render("./gallery/edit", {image: image});
+      }
+      else if(image.posted_by !== req.user.id){
         console.log('You can\'t fuck with other people\'s shit');
         res.redirect(303, `/gallery/${req.params.id}`);
       }
