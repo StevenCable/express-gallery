@@ -97,7 +97,7 @@ router.route('/:id')
   .delete(isAuth, (req, res) => {
     Photo.findById(req.params.id)
       .then((image) =>{
-        if(image.posted_by === req.user.id){
+        if(image.posted_by === req.user.id || req.user.username === "admin"){
             Photo.destroy({
               where: {
                 id: `${req.params.id}`
