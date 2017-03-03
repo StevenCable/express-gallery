@@ -5,8 +5,10 @@ const bp = require('body-parser');
 const methodOverride = require('method-override');
 const galleryRoute = require('./routes/galleryRoute');
 const userRoute = require('./routes/userRoute.js');
+const adminRoute = require('./routes/adminRoute.js');
 const isAuth = require('./public/js/isAuth');
 const setUser = require('./public/js/setUser');
+const isAdmin = require('./public/js/isAdmin');
 const db = require('./models');
 const Photo = db.Photo;
 const User = db.User;
@@ -84,6 +86,7 @@ function isAuthenticated(req, res, next){
 }
 app.use('/gallery', setUser, galleryRoute);
 app.use('/create', userRoute);
+app.use('/admin', adminRoute);
 
 app.route('/:user/gallery')
   .get((req, res)=>{

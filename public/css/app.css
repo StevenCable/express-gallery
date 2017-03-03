@@ -146,6 +146,9 @@ span {
   text-shadow: 1px 0 black;
   font-style: italic;
   text-decoration: underline; }
+  span.dateTime {
+    font-size: 0.8rem;
+    text-shadow: none; }
 
 input[type=text], [type=password] {
   width: 33%;
@@ -190,6 +193,27 @@ hr {
   border-top: solid 1px #cccc;
   box-shadow: 1px 1px #ccc;
   box-sizing: border-box; }
+
+.user {
+  margin: 2rem; }
+  .user .removeUser {
+    display: none; }
+
+.user:hover .removeUser {
+  display: initial;
+  border: solid 1px black;
+  background-color: grey;
+  cursor: pointer;
+  border: none;
+  color: white;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 5px;
+  font-size: 1rem; }
 
 .mainGallery {
   padding: 3rem;

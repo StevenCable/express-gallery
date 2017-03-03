@@ -99,6 +99,10 @@ span{
   text-shadow: 1px 0 black;
   font-style: italic;
   text-decoration: underline;
+  &.dateTime{
+    font-size: 0.8rem;
+    text-shadow: none;
+  }
 
 }
 input[type=text], [type=password]{
@@ -136,15 +140,13 @@ button, .input-btn{
     padding:0.5rem;
     margin-left: 0rem;
   }
-
 }
 
 button:hover{
   background-color: lightgrey;
   color: grey;
   border: solid 0.5px darkgrey;
-  box-shadow: 0 6px 12px 6px #7D7F7E
-
+  box-shadow: 0 6px 12px 6px #7D7F7E;
 }
 
 hr{
@@ -155,6 +157,41 @@ hr{
   box-sizing: border-box;
 }
 
+// .allUsers{
+//   width: 100%;
+// }
+
+.user{
+  margin: 2rem;
+
+  & .removeUser{
+    display: none;
+  }
+}
+
+.user:hover{
+  
+    & .removeUser{
+      display: initial;
+      border: solid 1px black;
+      background-color: grey;
+      cursor: pointer;
+      border: none;
+      color: white;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+}
+
+.removeUser{
+
+}
 
 
 

@@ -23,7 +23,6 @@ router.route('/')
   })
     .then((images) =>{
       if(req.user){
-        console.log('req.user', req.user);
         res.render('./gallery/list', {
           images:images,
           user: req.user.username

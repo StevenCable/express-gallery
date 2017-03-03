@@ -1,0 +1,15 @@
+This page needs more CSS. Any Ideas?
+
+I also need to create an Admin object so I can replace "my gallery" button on main page, with "user list" or some such. 
+
+<div class="allUsers">
+  {{#each users}}    
+        <div class="user">
+        <span>{{username}}</span> last active <span class="dateTime">{{updatedAt}}</span>
+        <a href="/admin/deleteUser/:id" class="removeUser">delete</a>
+        </div>       
+  {{/each}}
+</div>
+<form action="/gallery" method="GET">
+  <button id="goBack">Back</button>
+</form>
